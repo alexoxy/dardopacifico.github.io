@@ -20,7 +20,7 @@ A empresa presta serviços de consultoria estratégica e desenvolvimento de proj
 
 As mensagens enviadas através do formulário são encaminhadas para:
 
-`geral@dardopacifico.com`
+`info@dardopacifico.com`
 
 O formulário utiliza o FormSubmit. No primeiro envio, será necessário confirmar o endereço através do email de ativação recebido nessa caixa.
 
