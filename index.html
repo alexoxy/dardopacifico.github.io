@@ -8,6 +8,7 @@
   <style>
     :root {
       --bg: #07131f;
+      --bg-soft: #0d1f31;
       --panel: rgba(255,255,255,0.04);
       --panel-strong: rgba(255,255,255,0.06);
       --text: #f4f1ea;
@@ -20,7 +21,6 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       min-height: 100vh;
@@ -40,6 +40,8 @@
     .topbar {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: 16px;
       margin-bottom: 28px;
     }
 
@@ -69,19 +71,16 @@
       stroke-width: 1.8;
     }
 
+    .brand-text {
+      min-width: 0;
+    }
+
     .brand-text h1 {
       margin: 0;
       font-size: clamp(1.4rem, 2.4vw, 2.2rem);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       line-height: 1.05;
-    }
-
-    .brand-text p {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-      letter-spacing: 0.04em;
     }
 
     .hero {
@@ -140,15 +139,16 @@
 
     .email {
       display: inline-flex;
+      align-items: center;
+      gap: 10px;
       width: fit-content;
       margin-top: 26px;
       padding: 14px 18px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      color: var(--accent);
+      color: var(--text);
       text-decoration: none;
       background: rgba(255,255,255,0.03);
-      font-weight: 700;
       transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
 
@@ -157,6 +157,11 @@
       transform: translateY(-1px);
       border-color: var(--accent);
       background: rgba(255,255,255,0.05);
+    }
+
+    .email strong {
+      color: var(--accent);
+      font-weight: 700;
     }
 
     .hero-visual {
@@ -171,8 +176,7 @@
     .hero-visual::before {
       content: "";
       position: absolute;
-      right: -10%;
-      bottom: -15%;
+      inset: auto -10% -15% auto;
       width: 230px;
       height: 230px;
       border-radius: 50%;
@@ -183,37 +187,20 @@
     .visual-inner {
       position: absolute;
       inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
     }
 
     .visual-card {
-      width: min(100%, 470px);
-      border-radius: 18px;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: var(--panel-strong);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.26);
     }
 
-    .visual-caption {
-      padding: 16px 18px 18px;
-    }
-
-    .visual-caption strong {
+    .visual-card img {
       display: block;
-      margin-bottom: 6px;
-      font-size: 0.98rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .visual-caption span {
-      color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.6;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
     .contact {
@@ -223,12 +210,6 @@
     .contact h3 {
       margin: 0 0 8px;
       font-size: 1.5rem;
-    }
-
-    .contact p.lead {
-      margin: 0 0 22px;
-      color: var(--muted);
-      line-height: 1.65;
     }
 
     .contact-grid {
@@ -285,11 +266,6 @@
       line-height: 1.55;
     }
 
-    .note a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
     button {
       appearance: none;
       border: 1px solid var(--accent);
@@ -324,9 +300,18 @@
     }
 
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-copy, .contact { padding: 28px; }
-      .hero-visual { min-height: 300px; }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .contact {
+        padding: 28px;
+      }
+
+      .hero-visual {
+        min-height: 300px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -336,10 +321,19 @@
         padding-bottom: 28px;
       }
 
-      .topbar { margin-bottom: 18px; }
-      .brand-text p { font-size: 0.88rem; }
-      .hero-copy, .contact { padding: 22px 18px; }
-      .contact-grid { grid-template-columns: 1fr; }
+      .topbar {
+        margin-bottom: 18px;
+      }
+
+      .hero-copy,
+      .contact {
+        padding: 22px 18px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
       .field.full { grid-column: auto; }
 
       .actions {
@@ -347,8 +341,9 @@
         align-items: stretch;
       }
 
-      button { width: 100%; }
-      .visual-card { width: 100%; }
+      button {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -365,7 +360,6 @@
         </div>
         <div class="brand-text">
           <h1>Dardo Pacífico</h1>
-          <p>Consultoria Estratégica</p>
         </div>
       </div>
     </header>
@@ -380,53 +374,15 @@
         <p class="en" lang="en">
           Dardo Pacífico provides strategic advisory and project development services in complex, regulated and highly demanding sectors.
         </p>
-        <a class="email" href="mailto:info@dardopacifico.com">info@dardopacifico.com</a>
+        <a class="email" href="mailto:info@dardopacifico.com">
+          <strong>info@dardopacifico.com</strong>
+        </a>
       </div>
 
-      <div class="hero-visual" aria-label="Imagem institucional abstrata">
+      <div class="hero-visual" aria-label="Imagem ilustrativa">
         <div class="visual-inner">
           <div class="visual-card">
-            <svg viewBox="0 0 800 520" width="100%" height="auto" role="img" aria-label="Ilustração abstrata e institucional">
-              <defs>
-                <linearGradient id="bgGrad" x1="0" x2="1" y1="0" y2="1">
-                  <stop offset="0%" stop-color="#122b43"/>
-                  <stop offset="55%" stop-color="#102235"/>
-                  <stop offset="100%" stop-color="#0a1622"/>
-                </linearGradient>
-                <linearGradient id="lineGrad" x1="0" x2="1">
-                  <stop offset="0%" stop-color="#c8a36b"/>
-                  <stop offset="100%" stop-color="#8f6a37"/>
-                </linearGradient>
-                <linearGradient id="lightGrad" x1="0" x2="1">
-                  <stop offset="0%" stop-color="#f6e1bf" stop-opacity="0.9"/>
-                  <stop offset="100%" stop-color="#c8a36b" stop-opacity="0.12"/>
-                </linearGradient>
-              </defs>
-              <rect width="800" height="520" fill="url(#bgGrad)"/>
-              <circle cx="645" cy="126" r="90" fill="#c8a36b" opacity="0.12"/>
-              <circle cx="152" cy="138" r="124" fill="#ffffff" opacity="0.04"/>
-              <path d="M0 358 C110 330 180 314 286 324 C370 332 466 380 560 374 C648 368 715 312 800 302 L800 520 L0 520 Z" fill="#0d1c2c"/>
-              <path d="M0 384 C114 344 201 352 293 368 C381 383 476 422 560 414 C650 406 731 364 800 350" fill="none" stroke="url(#lineGrad)" stroke-width="4" opacity="0.85"/>
-              <path d="M66 130 H364" stroke="#ffffff" stroke-opacity="0.12" stroke-width="2"/>
-              <path d="M66 166 H300" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2"/>
-              <path d="M66 198 H252" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2"/>
-              <rect x="64" y="246" width="256" height="132" rx="16" fill="#17314c" stroke="#ffffff" stroke-opacity="0.08"/>
-              <rect x="92" y="278" width="54" height="72" rx="10" fill="#1f415f"/>
-              <rect x="160" y="292" width="128" height="16" rx="8" fill="#ffffff" fill-opacity="0.10"/>
-              <rect x="160" y="320" width="96" height="12" rx="6" fill="#ffffff" fill-opacity="0.08"/>
-              <rect x="160" y="344" width="112" height="12" rx="6" fill="#ffffff" fill-opacity="0.08"/>
-              <circle cx="610" cy="228" r="86" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
-              <circle cx="610" cy="228" r="58" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2"/>
-              <path d="M610 146V310M528 228H692" stroke="url(#lineGrad)" stroke-width="2.2" opacity="0.9"/>
-              <path d="M562 180 656 276" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
-              <path d="M656 180 562 276" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
-              <path d="M583 256 642 196" stroke="url(#lightGrad)" stroke-width="6" stroke-linecap="round"/>
-              <circle cx="610" cy="228" r="10" fill="#c8a36b"/>
-            </svg>
-            <div class="visual-caption">
-              <strong>Visão, estrutura e execução</strong>
-              <span>Consultoria estratégica para decisões e projetos de elevada complexidade.</span>
-            </div>
+            <img src="https://images.unsplash.com/photo-1692084664334-5787dd8f6141?auto=format&fit=crop&w=1400&q=82" alt="Navio ao nascer do dia em Aveiro, Portugal" loading="eager">
           </div>
         </div>
       </div>
@@ -434,8 +390,6 @@
 
     <section class="contact" id="contacto">
       <h3>Contacto</h3>
-      <p class="lead">Envie-nos uma mensagem através do formulário abaixo.</p>
-
       <form action="https://formsubmit.co/info@dardopacifico.com" method="POST">
         <div class="contact-grid">
           <div class="field">
@@ -461,7 +415,7 @@
         <input type="hidden" name="_next" value="https://dardopacifico.com/obrigado.html">
 
         <div class="actions">
-          <div class="note">Email direto: <a href="mailto:info@dardopacifico.com">info@dardopacifico.com</a></div>
+          <div class="note">Email direto: <a href="mailto:info@dardopacifico.com" style="color: var(--accent); text-decoration: none;">info@dardopacifico.com</a></div>
           <button type="submit">Enviar / Send</button>
         </div>
       </form>
