@@ -1,0 +1,20 @@
+{
+  "name": "Dardo Pacífico",
+  "short_name": "Dardo Pacífico",
+  "description": "Consultoria estratégica, desenvolvimento de projetos e investimento em iniciativas de elevada exigência em áreas complexas e reguladas.",
+  "lang": "pt-PT",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#07131f",
+  "theme_color": "#07131f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
