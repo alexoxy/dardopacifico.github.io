@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensagem enviada — Dardo Pacífico</title>
+  <style>
+    :root {
+      --bg: #07131f;
+      --text: #f4f1ea;
+      --muted: #b8c1ca;
+      --accent: #b9935a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(185,147,90,0.11), transparent 34%),
+        var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+
+    main { width: min(600px, 100%); }
+
+    .mark {
+      width: 48px;
+      height: 2px;
+      margin: 0 auto 30px;
+      background: var(--accent);
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin: 8px 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 22px;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    a:hover, a:focus {
+      background: var(--accent);
+      color: var(--bg);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="mark" aria-hidden="true"></div>
+    <h1>Obrigado</h1>
+    <p>A sua mensagem foi enviada com sucesso.</p>
+    <p lang="en">Your message has been sent successfully.</p>
+    <a href="/">Voltar / Return</a>
+  </main>
+</body>
+</html>
