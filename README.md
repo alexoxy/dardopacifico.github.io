@@ -2,7 +2,7 @@
 
 Website institucional da **Dardo Pacífico**, publicado através do GitHub Pages.
 
-A empresa presta serviços de consultoria estratégica e desenvolvimento de projetos em áreas complexas, reguladas e de elevada exigência.
+A Dardo Pacífico presta serviços de consultoria estratégica e desenvolvimento de projetos, com uma perspetiva de longo prazo e alinhamento de interesses em iniciativas de elevada exigência em áreas complexas.
 
 ## Website
 
@@ -12,8 +12,12 @@ A empresa presta serviços de consultoria estratégica e desenvolvimento de proj
 
 ## Estrutura
 
-- `index.html` — página principal e formulário de contacto
-- `obrigado.html` — página apresentada após o envio da mensagem
+- `index.html` — página principal bilingue e formulário de contacto
+- `obrigado.html` — página bilingue apresentada após o envio da mensagem, marcada como `noindex`
+- `favicon.svg` — favicon e símbolo do website
+- `site.webmanifest` — metadados da aplicação web
+- `robots.txt` — instruções para motores de pesquisa
+- `sitemap.xml` — mapa XML do website
 - `CNAME` — associação ao domínio `dardopacifico.com`
 
 ## Contacto
